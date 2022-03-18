@@ -1,7 +1,9 @@
 const knex = require("../db/connection")
 
 function listAllScores() {
-    return knex("scores").select("*")
+    return knex("scores")
+        .join("users", "scores.user_id", "users.user_id")
+        .select("users.user_name", "scores.*")
 }
 
 function listAllUsersScoresEasy() {
