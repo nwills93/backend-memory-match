@@ -10,6 +10,10 @@ async function listAllUsersScoresEasy(req, res, next) {
     res.json({data})
 }
 
+async function createNewScore(req, res, next) {
+    
+}
+
 module.exports = {
     listAllScores,
     listAllUsersScoresEasy,
