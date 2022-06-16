@@ -6,13 +6,20 @@ function listAllScores() {
 
 function listAllUsersScoresEasy() {
     return knex("scores")
-        .join("users", "users.user_id", "scores.user_id")
-        .select("users.user_name", "scores.turns_taken", "scores.time_taken")
-        .where({"scores.difficulty_mode": "easy"})
-        .orderBy("scores.time_taken", "asc")
+        .select("username", "turns_taken", "time_taken")
+        .where({"difficulty_mode": "easy"})
+        .orderBy("time_taken", "asc")
+}
+
+function createNewScore(score) {
+    return knex("scores")
+        .insert(score)
+        .returning("*")
+        .then(createdScore => createdScore[0])
 }
 
 module.exports = {
     listAllScores,
     listAllUsersScoresEasy,
+    createNewScore
 }
