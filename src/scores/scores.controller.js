@@ -73,6 +73,5 @@ async function createNewScore(req, res, next) {
 
 module.exports = {
     listAllScores: asyncErrorBoundary(listAllScores),
-    listAllUsersScoresEasy: asyncErrorBoundary(listAllUsersScoresEasy),
     createNewScore: [hasValidProperties, timeTakenIsValid, turnsTakenIsValid, gameDifficultyIsValid, asyncErrorBoundary(createNewScore)]
 }

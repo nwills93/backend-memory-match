@@ -13,6 +13,5 @@ function createNewScore(score) {
 
 module.exports = {
     listAllScores,
-    listAllUsersScoresEasy,
     createNewScore
 }
